@@ -20,14 +20,16 @@ class TechTest extends Controller
         for ($i=1; $i <= 100; $i++)
         {
             if ($i%3 == 0 && $i%5 == 0) {
-                echo "Mari Berkarya,";
+                echo "Mari Berkarya";
             } else if ($i%3 == 0) {
-                echo "Mari,";
+                echo "Mari";
             } else if ($i%5 == 0) {
-                echo "Berkarya,";
+                echo "Berkarya";
             } else {
-                echo $i . ",";
+                echo $i;
             }
+
+            ($i < 100) ? (print ",") : '';
         }
     }
 
@@ -78,5 +80,22 @@ class TechTest extends Controller
             "code"      => "00",
             "message"   => "Updated"
         ]);
+    }
+
+    public function deleteUser($id) 
+    {
+        $entity = User::where('id', $id)->first();
+        if (is_null($entity)) {
+            return response()->json([
+                "code"      => '40',
+                "message"   => "User not found"
+            ], 404);
+        }
+        
+        $data = $this->userService->delete($entity);
+        return response()->json([
+            "code"      => "00",
+            "message"   => "User Deleted"
+        ], 204);
     }
 }

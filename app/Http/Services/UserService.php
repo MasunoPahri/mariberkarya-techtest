@@ -54,4 +54,10 @@ class UserService
         
         return $this->userRepository->update($entity, $data);    
     }
+
+    public function delete($entity) 
+    {
+        return $this->userRepository->delete($entity);    
+    }
+
 }

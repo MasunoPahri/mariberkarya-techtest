@@ -33,4 +33,9 @@ class UserRepository
     {
         return $entity->update($data);
     }
+
+    public function delete($entity) 
+    {
+        return $entity->delete();
+    }
 }

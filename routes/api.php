@@ -26,3 +26,4 @@ Route::get('/users', [TechTest::class, 'fetchAll']);
 Route::get('/user/{id}', [TechTest::class, 'fetch']);
 Route::post('/user', [TechTest::class, 'create']);
 Route::post('/user/{id}', [TechTest::class, 'updateUser']);
+Route::delete('/user/{id}', [TechTest::class, 'deleteUser']);
